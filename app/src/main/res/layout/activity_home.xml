@@ -7,82 +7,109 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Bienvenue chez DroidRestaurant !"
+        android:text="@string/Welcome"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.055"
+        tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/entrees"
+        android:id="@+id/ButtonStarter"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="@string/entree"
+        android:text="@string/Starters"
         android:textColor="#FF9800"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/plat"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonDish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageChefAndroid"
         tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/plat"
+        android:id="@+id/ButtonDish"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="casual"
-        android:text="@string/plat"
+        android:text="@string/Dishes"
         android:textColor="#FF9800"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dessert"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonDessert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entrees"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonStarter"
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/dessert"
+        android:id="@+id/ButtonDessert"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="@string/dessert"
+        android:text="@string/Desserts"
         android:textColor="#FF9800"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plat"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDish"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imageChefAndroid"
         android:layout_width="144dp"
         android:layout_height="172dp"
+        android:contentDescription="@string/ImageChefAndroid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278"
-        app:srcCompat="@drawable/capture" />
+        app:srcCompat="@drawable/capture"
+        tools:ignore="ImageContrastCheck" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonDish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonStarter" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonDessert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonDish" />
 
 </android.support.constraint.ConstraintLayout>

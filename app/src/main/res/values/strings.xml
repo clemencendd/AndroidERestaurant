@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
-    <string name="entree">Starters</string>
-    <string name="plat">Dishes</string>
-    <string name="dessert">Desserts</string>
+    <string name="Welcome">Welcome in DroidRestaurant !</string>
+    <string name="Starters">Starters</string>
+    <string name="Dishes">Dishes</string>
+    <string name="Desserts">Desserts</string>
+    <string name="ImageChefAndroid">ContentDescription</string>
+    <string name="textView">TextView</string>
 </resources>
