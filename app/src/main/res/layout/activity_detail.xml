@@ -38,14 +38,14 @@
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
         android:text="TextView"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -67,13 +67,14 @@
         app:layout_constraintTop_toBottomOf="@+id/ingredients">
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
             app:srcCompat="@drawable/ic_less"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"/>
+
 
         <TextView
             android:id="@+id/quantity"
@@ -81,10 +82,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="1" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
