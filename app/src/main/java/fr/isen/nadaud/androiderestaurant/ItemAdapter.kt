@@ -1,25 +1,31 @@
 package fr.isen.nadaud.androiderestaurant
 
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import fr.isen.nadaud.androiderestaurant.databinding.CellMainBinding
+import fr.isen.nadaud.androiderestaurant.network.Dish
 
-class ItemAdapter(val items: List<String>, val itemClickListener: (String) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+class ItemAdapter(val items: List<Dish>, val itemClickListener: (Dish) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
     //on crée un pont de discussion retour entre l'activité et notre adapter
     //itemClickListener : est un bloc de code qui ne retourne rien (Unit), il a besoin d'une string en paramètre pour s'exécuter
 
     class ItemViewHolder(binding: CellMainBinding): RecyclerView.ViewHolder(binding.root){
         //mapper le contenu (les attributs) de notre cellule, permet d'avoir une classe associée
-        val title: TextView = binding.textView
+        val title: TextView = binding.title2
         //on crée le view model
 
+        val price: TextView = binding.price
+        val image: ImageView = binding.imageView
+
         //on doit récupérer le root de la cellule
-        val layout: ConstraintLayout = binding.root
+        val layout: CardView = binding.root
 
     }
 
@@ -35,8 +41,15 @@ class ItemAdapter(val items: List<String>, val itemClickListener: (String) -> Un
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         //appelé au moment de l'affichage de la cellule
         val item = items[position] //on recupere l'item
-        viewHolder.title.text = item
-
+        viewHolder.title.text = item.name
+        viewHolder.price.text = item.prices.first().price+ " €"
+        //on récupère le premier prix dans la liste de prix
+        //autre méthode : viewHolder.price.text = "${item.prices.first().price} €"
+        Picasso.get() //lib pour récupérer les images
+            .load(item.getThumbnailURL())
+            .placeholder(R.drawable.capture)
+            //on place une image par défaut en attendant le chargement
+            .into(viewHolder.image)
         viewHolder.layout.setOnClickListener {
            itemClickListener.invoke(item)
             //itemClickListener variable qui représente un bloc de code

@@ -1,14 +1,18 @@
 package fr.isen.nadaud.androiderestaurant
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.annotation.MenuRes
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.GsonBuilder
 import fr.isen.nadaud.androiderestaurant.databinding.ActivityCategoryBinding
+import fr.isen.nadaud.androiderestaurant.network.Dish
+import fr.isen.nadaud.androiderestaurant.network.MenuResult
 import fr.isen.nadaud.androiderestaurant.network.NetworkConstants
 import org.json.JSONObject
 
@@ -23,6 +27,15 @@ enum class LunchType { //enum = type de variable qui ne prend que les variables 
                 DESSERTS -> R.string.Desserts //name de la string du bouton des desserts
             }
         }
+
+        fun getCategoryTitle(type: LunchType): String{
+            //sert à filtrer les catégories, retourne une string entrée, plat ou dessert
+            return when(type){
+                STARTERS -> "Entrées"
+                DISHES -> "Plats"
+                DESSERTS -> "Desserts"
+            }
+        }
     }
 }
 
@@ -30,8 +43,6 @@ enum class LunchType { //enum = type de variable qui ne prend que les variables 
 class CategoryActivity : AppCompatActivity() {
     lateinit var  binding: ActivityCategoryBinding
     lateinit var currentCategory: LunchType
-
-    val fakeItems = listOf("item1","item2","item3","item4")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +56,6 @@ class CategoryActivity : AppCompatActivity() {
         //?: LunchType.STARTERS : permet de donner une valeur par défaut, ici sur STARTERS (pour ne pas gérer une valeur nulle)
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? LunchType ?: LunchType.STARTERS
         setupTitle()
-        setupList()
         makeRequest()
 
         Log.d("life cycle", "CategoryActivity onCreate") //onCreate est une méthode
@@ -58,10 +68,10 @@ class CategoryActivity : AppCompatActivity() {
         binding.title.text = getString(LunchType.getResString(currentCategory)) //getString : convertir une ressource ID (le name de la string) en string
     }
 
-    private fun setupList() {
+    private fun setupList(items: List<Dish>){
 
         binding.itemRecyclerView.layoutManager = LinearLayoutManager(this) //permet d'afficher la liste
-        val adapter = ItemAdapter(fakeItems) { selectedItem -> //permet de forcer le nommage
+        val adapter = ItemAdapter(items) { selectedItem -> //permet de forcer le nommage
             //closure
             //Log.d("debug", it)
 
@@ -85,7 +95,7 @@ class CategoryActivity : AppCompatActivity() {
             parameters,
             {
                 //retour de la requête si ça s'est bien passé
-                Log.d("volley","${it.toString(2)}")
+                parseResult(it.toString())
             },
             {
                 //retour de la requête si erreur (ex: pas de connexion, 404...)
@@ -94,7 +104,27 @@ class CategoryActivity : AppCompatActivity() {
         queue.add(request)
     }
 
-    private fun showDetail(item: String){
+    private fun parseResult(response: String){
+        //Log.d("volley","${it.toString(2)}")
+        val result = GsonBuilder().create().fromJson(response, MenuResult::class.java)
+        val items = result.data.firstOrNull {
+            it.name == LunchType.getCategoryTitle(currentCategory)
+        }?.items
+
+        //Approche standard :
+        //if (items != null){
+        //    setupList(items)
+        //}
+        //Autre écriture plus "kotlin" :
+        items?.let {
+            //.let permet de rappeler l'appel et ne s'affiche que si l'item est non nul
+            setupList(it)
+        }
+    }
+
+
+
+    private fun showDetail(item: Dish){
         val intent = Intent (this@CategoryActivity, DetailActivity::class.java)
         intent.putExtra(CategoryActivity.ItemSelected, item) //va permettre de savoir dans quel catégorie nous sommes
         startActivity(intent) //méthode qui démarre l'intent
