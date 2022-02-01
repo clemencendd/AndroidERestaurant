@@ -7,12 +7,18 @@
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/drawable-v24/ic_delete.xml" value="0.22708333333333333" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/drawable-v24/ic_less.xml" value="0.22708333333333333" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/drawable-v24/ic_more.xml" value="0.22708333333333333" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/drawable/rounded_background.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_base.xml" value="0.21875" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_basket.xml" value="0.1" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_category.xml" value="0.327445652173913" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_home.xml" value="0.1537037037037037" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/cell_basket.xml" value="0.33" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/cell_main.xml" value="0.33" />
         <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/fragment_photo.xml" value="0.33" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/layout/menu_basket.xml" value="0.33" />
+        <entry key="..\:/Users/clemence.nadaud/AndroidStudioProjects/AndroidERestaurant/app/src/main/res/menu/menu.xml" value="0.33" />
       </map>
     </option>
   </component>

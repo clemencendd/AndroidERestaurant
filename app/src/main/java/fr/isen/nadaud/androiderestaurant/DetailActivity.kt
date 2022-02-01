@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlin.math.max
 
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDetailBinding
     private var currentDish: Dish? = null

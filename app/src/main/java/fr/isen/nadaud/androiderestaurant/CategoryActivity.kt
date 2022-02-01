@@ -40,7 +40,7 @@ enum class LunchType { //enum = type de variable qui ne prend que les variables 
 }
 
 
-class CategoryActivity : AppCompatActivity() {
+class CategoryActivity : BaseActivity() {
     lateinit var  binding: ActivityCategoryBinding
     lateinit var currentCategory: LunchType
 

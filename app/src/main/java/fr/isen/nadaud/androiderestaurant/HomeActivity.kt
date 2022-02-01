@@ -3,6 +3,7 @@ package fr.isen.nadaud.androiderestaurant //
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.nadaud.androiderestaurant.databinding.ActivityHomeBinding
@@ -11,7 +12,7 @@ enum class ItemType {
     STARTERS, DISHES, DESSERTS;
 }
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
