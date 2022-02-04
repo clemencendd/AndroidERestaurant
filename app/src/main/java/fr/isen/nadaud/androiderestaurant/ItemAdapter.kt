@@ -18,7 +18,7 @@ class ItemAdapter(val items: List<Dish>, val itemClickListener: (Dish) -> Unit):
 
     class ItemViewHolder(binding: CellMainBinding): RecyclerView.ViewHolder(binding.root){
         //mapper le contenu (les attributs) de notre cellule, permet d'avoir une classe associée
-        val title: TextView = binding.title2
+        val title: TextView = binding.name
         //on crée le view model
 
         val price: TextView = binding.price
