@@ -2,14 +2,13 @@ package fr.isen.nadaud.androiderestaurant
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.MenuRes
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
+import fr.isen.nadaud.androiderestaurant.Detail.DetailActivity
 import fr.isen.nadaud.androiderestaurant.databinding.ActivityCategoryBinding
 import fr.isen.nadaud.androiderestaurant.network.Dish
 import fr.isen.nadaud.androiderestaurant.network.MenuResult

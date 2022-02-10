@@ -1,17 +1,11 @@
-package fr.isen.nadaud.androiderestaurant
+package fr.isen.nadaud.androiderestaurant.Detail
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.appcompat.app.AppCompatActivity
 import fr.isen.nadaud.androiderestaurant.databinding.ActivityDetailBinding
 import fr.isen.nadaud.androiderestaurant.network.Dish
-import android.content.Context
-import android.media.Image
-import android.widget.Button
-import android.widget.ImageButton
 
-import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
+import fr.isen.nadaud.androiderestaurant.*
 import kotlin.math.max
 
 
