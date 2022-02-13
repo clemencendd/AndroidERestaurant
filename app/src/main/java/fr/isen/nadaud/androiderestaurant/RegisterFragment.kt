@@ -41,7 +41,13 @@ class RegisterFragment () : Fragment() {
         }
         binding.createButton.setOnClickListener {
             //on cherche à récupérer les elts du formulaire et les passer à l'activité
-
+            interactor?.makeRequest(
+                binding.firstname.text.toString(),
+                binding.lastname.text.toString(),
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                false
+            )
         }
     }
 }
